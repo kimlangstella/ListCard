@@ -22,17 +22,10 @@ const page = () => {
 }
   const [selectCard, setSelectCard] = useState("");
   const selectedUser = user.filter((user) => {
-    if(user.username === selectCard){
+    if(user.id === selectCard){
       return user
     }
   })
-  const handleUpdateUser = (updatedUser) => {
-    const updatedUsers = user.map((user) =>
-      user.id === updatedUser.id ? updatedUser : user
-    );
-    setuser(updatedUsers);
-    setSelectCard("");
-  };
   return (
     <div>
       <Cardlist
@@ -43,8 +36,16 @@ const page = () => {
         
       />
       <ShowModal selectCard={selectCard}>
-        <Addform addNewUser={setuser} />
-        <Updateform selectedUser={selectedUser[0]} updateUser={setuser} />
+      {selectedUser.length > 0 ? (
+          <>
+            <Updateform selectedUser={selectedUser[0]} updateUser={setuser} />
+          </>
+        ) : (
+          <>
+            <Addform addNewUser={setuser} />
+          </>
+        )}
+
       </ShowModal>
     </div>
   );

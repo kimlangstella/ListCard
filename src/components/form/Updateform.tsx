@@ -6,25 +6,30 @@ interface UpdateformProps {
   updateUser: Dispatch<SetStateAction<User[]>>;
   selectedUser: User;
 }
-const Updateform:React.FC<UpdateformProps> = ({selectedUser,updateUser}) => {
-    
-    const [user, setUser] = useState({
-        ...selectedUser
+const Updateform: React.FC<UpdateformProps> = ({
+  selectedUser,
+  updateUser,
+}) => {
+  const [user, setUser] = useState({
+    username: selectedUser.username,
+    id: selectedUser.id,
+    profile: selectedUser.profile,
+  });
+  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    e.preventDefault();
+    updateUser((prevUsers) => {
+      return prevUsers.map((prevUser) => {
+        if (prevUser.id === selectedUser.id) {
+          return {
+            ...prevUser,
+            ...user,
+          };
+        }
+        return prevUser;
       });
-      const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        updateUser((prevUsers) => {
-          return prevUsers.map((prevUser) => {
-            if (prevUser.id === selectedUser.id) {
-              return {
-                ...prevUser,
-                ...user,
-              };
-            }
-            return prevUser;
-          });
-        });
-      };    
+    });
+  };
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log("Event", e);
     setUser((prevUser) => {

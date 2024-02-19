@@ -6,7 +6,6 @@ interface CardlistProps {
   selectCard: string;
   onSelectCard: React.Dispatch<React.SetStateAction<string>>;
   onDeleteCard: (id: string) => void;
-  onUpdateCard:
 }
 const Cardlist: React.FC<CardlistProps> = ({
   items,

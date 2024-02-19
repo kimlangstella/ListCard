@@ -5,7 +5,7 @@ interface AddFormProps {
   addNewUser: (User: User) => void;
 }
 const Addform: React.FC<AddFormProps> = ({ addNewUser }) => {
-  const [user, setUser] = useState({ username: "", profile: "" });
+  const [user, setUser] = useState({ id:"" , username: "", profile: "" });
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addNewUser((prevUsers) => [...prevUsers, user]);
@@ -33,6 +33,15 @@ const Addform: React.FC<AddFormProps> = ({ addNewUser }) => {
   return (
     <div>
       <form onSubmit={handleOnSubmit}>
+      <label htmlFor="">ID:</label>
+        <input
+          type="text"
+          name="id"
+          id="id"
+          className="border border-blue-300 text-black"
+          onChange={handleOnChange}
+        />
+        <br />
         <label htmlFor="">FullName:</label>
         <input
           type="text"

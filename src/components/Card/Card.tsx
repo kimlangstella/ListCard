@@ -6,7 +6,7 @@ interface CardProps {
   id: string;
   selectCard: string | null;
   onSelectCard: React.Dispatch<React.SetStateAction<string>>;
-  onDeleteCard: React.Dispatch<React.SetStateAction<string>>
+  onDeleteCard: React.Dispatch<React.SetStateAction<string>>;
 }
 const Card: React.FC<CardProps> = ({
   fullname,
@@ -14,22 +14,22 @@ const Card: React.FC<CardProps> = ({
   id,
   selectCard,
   onSelectCard,
-  onDeleteCard
+  onDeleteCard,
 }) => {
   return (
     <div
       onClick={() => {
         // Unselect Card
-        if (selectCard === fullname) {
+        if (selectCard === id) {
           onSelectCard("");
         } else {
           // Select Card
-          onSelectCard(fullname);
+          onSelectCard(id);
         }
       }}
       className={
-        selectCard === fullname
-          ? "flex gap-44 border w-[450px] bg-slate-200 rounded-lg relative mt-3 m-auto p-4 justify-center "
+        selectCard === id
+          ? "flex gap-44 border w-[450px] bg-red-200 rounded-lg relative mt-3 m-auto p-4 justify-center "
           : "flex gap-44 border w-[450px] border-blue-800 rounded-lg relative mt-3 m-auto p-4 justify-center"
       }
     >
@@ -44,8 +44,12 @@ const Card: React.FC<CardProps> = ({
           </div>
         </div>
         <div className="absolute top-0 right-0">
-          <button onClick={(e) => {onDeleteCard(id) 
-                e.stopPropagation()}}>
+          <button
+            onClick={(e) => {
+              onDeleteCard(id);
+              e.stopPropagation();
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
