@@ -9,13 +9,7 @@ export interface User {
   profile: string;
 }
 const page = () => {
-  const [user, setuser] = useState<User[]>([
-    // {
-    //   username:"kimalng",
-    //   profile:"/flower.jpg",
-    //   id:"1"
-    // }
-  ]);
+  const [user, setuser] = useState<User[]>([]);
   const handleDeleteCard = (id: string) => {
     const deleteItem = user.filter((user) => user.id !== id);
     setuser(deleteItem)

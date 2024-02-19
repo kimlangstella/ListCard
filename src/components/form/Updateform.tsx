@@ -17,7 +17,6 @@ const Updateform: React.FC<UpdateformProps> = ({
   });
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    e.preventDefault();
     updateUser((prevUsers) => {
       return prevUsers.map((prevUser) => {
         if (prevUser.id === selectedUser.id) {
