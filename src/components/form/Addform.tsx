@@ -5,7 +5,7 @@ interface AddFormProps {
   addNewUser: (User: User) => void;
 }
 const Addform: React.FC<AddFormProps> = ({ addNewUser }) => {
-  const [user, setUser] = useState({ id:"" , username: "", profile: "" });
+  const [user, setUser] = useState({ id: "", username: "", profile: "" });
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addNewUser((prevUsers) => [...prevUsers, user]);
@@ -33,7 +33,8 @@ const Addform: React.FC<AddFormProps> = ({ addNewUser }) => {
   return (
     <div>
       <form onSubmit={handleOnSubmit}>
-      <label htmlFor="">ID:</label>
+        <label htmlFor="">ID:</label>
+        <br />
         <input
           type="text"
           name="id"
@@ -43,6 +44,7 @@ const Addform: React.FC<AddFormProps> = ({ addNewUser }) => {
         />
         <br />
         <label htmlFor="">FullName:</label>
+        <br />
         <input
           type="text"
           name="username"
@@ -52,6 +54,7 @@ const Addform: React.FC<AddFormProps> = ({ addNewUser }) => {
         />
         <br />
         <label htmlFor="">Image: </label>
+        <br />
         <input
           type="file"
           name="profile"
@@ -60,7 +63,7 @@ const Addform: React.FC<AddFormProps> = ({ addNewUser }) => {
           onChange={handleOnUploadFile}
         />
         <br />
-        <button className="p-2 bg-slate-400 mt-3">submit</button>
+        <button className="p-2 bg-slate-400 mt-3 m-36 rounded-md">submit</button>
       </form>
     </div>
   );

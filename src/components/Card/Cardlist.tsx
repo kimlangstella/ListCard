@@ -11,7 +11,7 @@ const Cardlist: React.FC<CardlistProps> = ({
   items,
   selectCard,
   onSelectCard,
-  onDeleteCard
+  onDeleteCard,
 }) => {
   return (
     <div>

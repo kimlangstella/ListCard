@@ -54,6 +54,7 @@ const Updateform: React.FC<UpdateformProps> = ({
     <div>
       <form onSubmit={handleOnSubmit}>
         <label htmlFor="">FullName:</label>
+        <br />
         <input
           type="text"
           name="username"
@@ -64,6 +65,7 @@ const Updateform: React.FC<UpdateformProps> = ({
         />
         <br />
         <label htmlFor="">Image: </label>
+        <br />
         <input
           type="file"
           name="profile"
@@ -72,7 +74,7 @@ const Updateform: React.FC<UpdateformProps> = ({
           onChange={handleOnUploadFile}
         />
         <br />
-        <button className="p-2 bg-slate-400 mt-3">update</button>
+        <button className="p-2 bg-slate-400 mt-3 rounded-md ml-36">update</button>
       </form>
     </div>
   );
