@@ -7,6 +7,8 @@ interface CardProps {
   selectCard: string | null;
   onSelectCard: React.Dispatch<React.SetStateAction<string>>;
   onDeleteCard: React.Dispatch<React.SetStateAction<string>>;
+  fontsize:"bold"|"thin";
+  className?:string;
 }
 const Card: React.FC<CardProps> = ({
   fullname,
@@ -15,7 +17,18 @@ const Card: React.FC<CardProps> = ({
   selectCard,
   onSelectCard,
   onDeleteCard,
+  fontsize,className
 }) => {
+  const fontSize=(fontsize:string)=>{
+    switch(fontsize){
+      case 'bold':
+        return 'font-bold';
+      case 'thin':
+        return 'font-thin';
+    }
+};
+const formfontSize=fontSize(fontsize);
+
   return (
     <div
       onClick={() => {
@@ -37,7 +50,7 @@ const Card: React.FC<CardProps> = ({
         <div className="flex gap-11 w-72 h-14">
           <Image src={src} width={50} height={50} alt=""></Image>
           <div>
-            <h1 className="text-x1 font-bold">{fullname}</h1>
+            <h1  className={`${formfontSize} ${className}`}>{fullname}</h1>
             <button className="border mt-2 p-1 border-blue-950 rounded-lg hover:bg-orange-300">
               preview
             </button>

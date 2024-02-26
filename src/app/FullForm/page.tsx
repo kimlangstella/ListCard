@@ -1,3 +1,5 @@
+'use client'
+import Validation from '@/Validation/Validation'
 import React from 'react'
 
 const FullForm = () => {
@@ -9,6 +11,7 @@ const FullForm = () => {
         <input type="text" placeholder='password'className='border border-blue-400 p-2 mt-6  bg-slate-300'/>
         <input type="submit" className='border border-blue-400 p-2 mt-6 bg-slate-600 rounded-lg text-white' />
      </form>
+     <Validation/>
     </div>
   )
 }
